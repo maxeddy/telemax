@@ -45,6 +45,12 @@ class PageService(
 
     fun delete(page: Page) = pageRepository.delete(page)
 
+    fun findPreviousPageNumber(pageNumber: Int): Int? =
+        pageRepository.findFirstByPageNumberLessThanOrderByPageNumberDesc(pageNumber)?.pageNumber
+
+    fun findNextPageNumber(pageNumber: Int): Int? =
+        pageRepository.findFirstByPageNumberGreaterThanOrderByPageNumberAsc(pageNumber)?.pageNumber
+
     fun parseParagraphs(page: Page): List<Paragraph> {
         return objectMapper.readValue(page.content, object : TypeReference<List<Paragraph>>() {})
     }

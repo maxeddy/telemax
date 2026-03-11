@@ -7,7 +7,8 @@
     <link rel="stylesheet" th:href="@{/css/telemax.css}">
 </head>
 <body class="page-view">
-    <div class="container">
+    <div class="container" id="page-container"
+         th:data-prev="${prevPage}" th:data-next="${nextPage}">
         <div class="pre-header">
             <span class="pre-header-title">Telemax</span>
             <span class="pre-header-page-number" th:text="${page.pageNumber}"></span>
@@ -30,5 +31,29 @@
 
         <div class="yellow-line bottom"></div>
     </div>
+    <script>
+        (function() {
+            var container = document.getElementById('page-container');
+            var startX = 0;
+            var startY = 0;
+
+            container.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+            }, { passive: true });
+
+            container.addEventListener('touchend', function(e) {
+                var dx = e.changedTouches[0].clientX - startX;
+                var dy = e.changedTouches[0].clientY - startY;
+                if (Math.abs(dx) < 50 || Math.abs(dy) > Math.abs(dx)) return;
+
+                if (dx < 0 && container.dataset.next) {
+                    window.location.href = '/' + container.dataset.next;
+                } else if (dx > 0 && container.dataset.prev) {
+                    window.location.href = '/' + container.dataset.prev;
+                }
+            }, { passive: true });
+        })();
+    </script>
 </body>
 </html>
