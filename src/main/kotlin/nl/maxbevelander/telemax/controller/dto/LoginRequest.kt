@@ -1,4 +1,4 @@
-package nl.maxbevelander.telemax.dto
+package nl.maxbevelander.telemax.controller.dto
 
 data class LoginRequest(
     val username: String,

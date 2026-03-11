@@ -1,7 +1,7 @@
 package nl.maxbevelander.telemax.controller
 
-import nl.maxbevelander.telemax.dto.LoginRequest
-import nl.maxbevelander.telemax.dto.LoginResponse
+import nl.maxbevelander.telemax.controller.dto.LoginRequest
+import nl.maxbevelander.telemax.controller.dto.LoginResponse
 import nl.maxbevelander.telemax.config.jwt.JwtUtil
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
