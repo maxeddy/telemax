@@ -14,7 +14,7 @@
         </div>
         <ul th:if="${!pages.isEmpty()}">
             <li th:each="page : ${pages}">
-                <a th:href="@{/pages/{pn}(pn=${page.pageNumber})}"
+                <a th:href="@{/{pn}(pn=${page.pageNumber})}"
                    th:text="${page.pageNumber} + ' - ' + ${page.title}"></a>
             </li>
         </ul>

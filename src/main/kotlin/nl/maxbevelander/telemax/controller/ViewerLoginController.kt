@@ -28,7 +28,7 @@ class ViewerLoginController(
     ): String {
         if (password == viewerPassword) {
             request.session.setAttribute("viewerAuthenticated", true)
-            return "redirect:/pages"
+            return "redirect:/"
         }
         model.addAttribute("error", true)
         return "viewer/login"

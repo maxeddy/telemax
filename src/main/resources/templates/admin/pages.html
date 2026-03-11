@@ -11,7 +11,7 @@
         <h2>Manage Pages</h2>
         <div class="admin-nav">
             <a th:href="@{/admin/pages/create}" class="btn">+ Create Page</a>
-            <a th:href="@{/pages}" class="btn">View Pages</a>
+            <a th:href="@{/}" class="btn">View Pages</a>
             <form th:action="@{/logout}" method="post">
                 <button type="submit" class="btn btn-logout">Logout</button>
             </form>
@@ -30,7 +30,7 @@
             <tbody>
                 <tr th:each="page : ${pages}">
                     <td>
-                        <a th:href="@{/pages/{pn}(pn=${page.pageNumber})}" th:text="${page.pageNumber}"></a>
+                        <a th:href="@{/{pn}(pn=${page.pageNumber})}" th:text="${page.pageNumber}"></a>
                     </td>
                     <td th:text="${page.title}"></td>
                     <td th:text="${page.createdBy}"></td>

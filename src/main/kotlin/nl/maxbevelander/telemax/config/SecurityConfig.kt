@@ -21,14 +21,14 @@ class SecurityConfig {
             .authorizeHttpRequests { auth ->
                 auth
                     .requestMatchers("/login", "/css/**", "/js/**").permitAll()
-                    .requestMatchers("/viewer/login", "/pages/**").permitAll()
+                    .requestMatchers("/viewer/login", "/", "/{pageNumber:\\d+}").permitAll()
                     .requestMatchers("/admin/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
             }
             .formLogin { form ->
                 form
                     .loginPage("/login")
-                    .defaultSuccessUrl("/pages", true)
+                    .defaultSuccessUrl("/admin/pages", true)
                     .permitAll()
             }
             .logout { logout ->

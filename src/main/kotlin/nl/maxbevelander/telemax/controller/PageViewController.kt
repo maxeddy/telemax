@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
-@RequestMapping("/pages")
 class PageViewController(private val pageService: PageService) {
 
-    @GetMapping
+    @GetMapping("/")
     fun index(model: Model): String {
         val page = pageService.findByPageNumber(100)
             ?: run {
@@ -23,10 +22,10 @@ class PageViewController(private val pageService: PageService) {
         return "pages/view"
     }
 
-    @GetMapping("/{pageNumber}")
+    @GetMapping("/{pageNumber:\\d+}")
     fun view(@PathVariable pageNumber: Int, model: Model): String {
         val page = pageService.findByPageNumber(pageNumber)
-            ?: return "redirect:/pages"
+            ?: return "redirect:/"
 
         model.addAttribute("page", page)
         model.addAttribute("paragraphs", pageService.parseParagraphs(page))

@@ -9,6 +9,6 @@ class WebMvcConfig(private val viewerAccessInterceptor: ViewerAccessInterceptor)
 
     override fun addInterceptors(registry: InterceptorRegistry) {
         registry.addInterceptor(viewerAccessInterceptor)
-            .addPathPatterns("/pages/**", "/pages")
+            .addPathPatterns("/", "/{pageNumber:\\d+}")
     }
 }
