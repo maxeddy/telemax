@@ -21,13 +21,13 @@ class UserDetailsConfig {
         val max = User.builder()
             .username("max")
             .password(passwordEncoder.encode("password123"))
-            .roles("USER")
+            .roles("ADMIN")
             .build()
 
         val emily = User.builder()
             .username("emily")
             .password(passwordEncoder.encode("password123"))
-            .roles("USER")
+            .roles("ADMIN")
             .build()
 
         return InMemoryUserDetailsManager(max, emily)
