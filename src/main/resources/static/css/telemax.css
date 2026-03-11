@@ -51,6 +51,22 @@ body.page-view {
     margin: 0.5rem 0;
 }
 
+#first-yellow-line {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#first-yellow-line .part-indicator {
+    color: #ffff00;
+    padding: 0.5rem;
+    background: black;
+    font-family: monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
 .header {
     background-color: #0000ff;
     padding: 0 2rem;
