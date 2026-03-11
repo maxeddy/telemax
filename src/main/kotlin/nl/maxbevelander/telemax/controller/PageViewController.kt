@@ -13,8 +13,14 @@ class PageViewController(private val pageService: PageService) {
 
     @GetMapping
     fun index(model: Model): String {
-        model.addAttribute("pages", pageService.findAll())
-        return "pages/index"
+        val page = pageService.findByPageNumber(100)
+            ?: run {
+                model.addAttribute("pages", pageService.findAll())
+                return "pages/index"
+            }
+        model.addAttribute("page", page)
+        model.addAttribute("paragraphs", pageService.parseParagraphs(page))
+        return "pages/view"
     }
 
     @GetMapping("/{pageNumber}")
