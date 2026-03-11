@@ -10,11 +10,11 @@
     <div class="admin-container">
         <h2 th:text="${isEdit} ? 'Edit Page ' + ${pageForm.pageNumber} : 'Create Page'"></h2>
         <div class="admin-nav">
-            <a th:href="@{/admin/pages}" class="btn">&larr; Back to Pages</a>
+            <a th:href="@{/admin}" class="btn">&larr; Back to Pages</a>
         </div>
         <div class="error-msg" th:if="${error}" th:text="${error}"></div>
         <form class="admin-form"
-              th:action="${isEdit} ? @{/admin/pages/{pn}/edit(pn=${pageForm.pageNumber})} : @{/admin/pages/create}"
+              th:action="${isEdit} ? @{/admin/{pn}/edit(pn=${pageForm.pageNumber})} : @{/admin/create}"
               th:object="${pageForm}"
               method="post">
             <div class="form-group">
@@ -53,7 +53,7 @@
             <button type="button" id="add-paragraph" class="btn btn-add">+ Add Paragraph</button>
             <div>
                 <button type="submit" class="btn btn-primary" th:text="${isEdit} ? 'Update Page' : 'Create Page'"></button>
-                <a th:href="@{/admin/pages}" class="btn btn-secondary">Cancel</a>
+                <a th:href="@{/admin}" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
     </div>

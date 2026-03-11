@@ -10,7 +10,7 @@
     <div class="admin-container">
         <h2>Manage Pages</h2>
         <div class="admin-nav">
-            <a th:href="@{/admin/pages/create}" class="btn">+ Create Page</a>
+            <a th:href="@{/admin/create}" class="btn">+ Create Page</a>
             <a th:href="@{/}" class="btn">View Pages</a>
             <form th:action="@{/logout}" method="post">
                 <button type="submit" class="btn btn-logout">Logout</button>
@@ -35,8 +35,8 @@
                     <td th:text="${page.title}"></td>
                     <td th:text="${page.createdBy}"></td>
                     <td class="actions">
-                        <a th:href="@{/admin/pages/{pn}/edit(pn=${page.pageNumber})}" class="btn-small btn-edit">Edit</a>
-                        <form th:action="@{/admin/pages/{pn}/delete(pn=${page.pageNumber})}" method="post"
+                        <a th:href="@{/admin/{pn}/edit(pn=${page.pageNumber})}" class="btn-small btn-edit">Edit</a>
+                        <form th:action="@{/admin/{pn}/delete(pn=${page.pageNumber})}" method="post"
                               onsubmit="return confirm('Delete this page?')">
                             <button type="submit" class="btn-small btn-delete">Delete</button>
                         </form>

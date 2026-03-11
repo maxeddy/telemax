@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
 
 @Controller
-@RequestMapping("/admin/pages")
+@RequestMapping("/admin")
 class AdminPageController(private val pageService: PageService) {
 
     @GetMapping
@@ -38,24 +38,24 @@ class AdminPageController(private val pageService: PageService) {
     ): String {
         if (pageService.existsByPageNumber(pageForm.pageNumber)) {
             redirectAttributes.addFlashAttribute("error", "Page ${pageForm.pageNumber} already exists.")
-            return "redirect:/admin/pages/create"
+            return "redirect:/admin/create"
         }
 
         if (pageForm.pageNumber < 100 || pageForm.pageNumber > 999) {
             redirectAttributes.addFlashAttribute("error", "Page number must be between 100 and 999.")
-            return "redirect:/admin/pages/create"
+            return "redirect:/admin/create"
         }
 
         val paragraphs = pageForm.paragraphs.filter { it.text.isNotBlank() }
         pageService.create(pageForm.pageNumber, pageForm.title, paragraphs, authentication.name)
         redirectAttributes.addFlashAttribute("success", "Page ${pageForm.pageNumber} created.")
-        return "redirect:/admin/pages"
+        return "redirect:/admin"
     }
 
     @GetMapping("/{pageNumber}/edit")
     fun editForm(@PathVariable pageNumber: Int, model: Model): String {
         val page = pageService.findByPageNumber(pageNumber)
-            ?: return "redirect:/admin/pages"
+            ?: return "redirect:/admin"
 
         val paragraphs = pageService.parseParagraphs(page).toMutableList()
         if (paragraphs.isEmpty()) paragraphs.add(Paragraph())
@@ -77,12 +77,12 @@ class AdminPageController(private val pageService: PageService) {
         redirectAttributes: RedirectAttributes
     ): String {
         val page = pageService.findByPageNumber(pageNumber)
-            ?: return "redirect:/admin/pages"
+            ?: return "redirect:/admin"
 
         val paragraphs = pageForm.paragraphs.filter { it.text.isNotBlank() }
         pageService.update(page, pageForm.title, paragraphs)
         redirectAttributes.addFlashAttribute("success", "Page $pageNumber updated.")
-        return "redirect:/admin/pages"
+        return "redirect:/admin"
     }
 
     @PostMapping("/{pageNumber}/delete")
@@ -92,6 +92,6 @@ class AdminPageController(private val pageService: PageService) {
             pageService.delete(page)
             redirectAttributes.addFlashAttribute("success", "Page $pageNumber deleted.")
         }
-        return "redirect:/admin/pages"
+        return "redirect:/admin"
     }
 }

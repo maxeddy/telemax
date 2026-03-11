@@ -28,7 +28,7 @@ class SecurityConfig {
             .formLogin { form ->
                 form
                     .loginPage("/login")
-                    .defaultSuccessUrl("/admin/pages", true)
+                    .defaultSuccessUrl("/admin", true)
                     .permitAll()
             }
             .logout { logout ->
