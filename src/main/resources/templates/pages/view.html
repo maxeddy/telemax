@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="'Telemax - ' + ${page.title}">Telemax</title>
+    <link rel="stylesheet" th:href="@{/css/telemax.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="pre-header">
+            <span class="pre-header-title">Telemax</span>
+            <span class="pre-header-page-number" th:text="${page.pageNumber}"></span>
+        </div>
+
+        <div class="yellow-line"></div>
+
+        <div class="header">
+            <h1 th:text="${page.title}"></h1>
+        </div>
+
+        <div class="yellow-line"></div>
+
+        <div class="content">
+            <p class="paragraph" th:each="para : ${paragraphs}">
+                <span class="bullet" th:if="${para.hasBullet}"></span>
+                <th:block th:text="${para.text}"></th:block>
+            </p>
+        </div>
+        <div class="yellow-line"></div>
+    </div>
+    <div style="max-width: 560px; margin-top: 10px;">
+        <a th:href="@{/pages}" style="color: #00cccc; font-family: monospace; text-decoration: none;">&larr; Back to pages</a>
+    </div>
+</body>
+</html>

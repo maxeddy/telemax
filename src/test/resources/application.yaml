@@ -2,7 +2,7 @@ spring:
   application:
     name: telemax
   datasource:
-    url: jdbc:sqlite:./data/telemax.db
+    url: "jdbc:sqlite:build/test-telemax.db"
     driver-class-name: org.sqlite.JDBC
   jpa:
     database-platform: org.hibernate.community.dialect.SQLiteDialect
@@ -11,3 +11,4 @@ spring:
   flyway:
     enabled: true
     locations: classpath:db/migration
+    clean-on-validation-error: true

@@ -1,0 +1,444 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a;
+    font-family: monospace;
+    padding: 10px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 560px;
+    background-color: #1a1a1a;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    padding-bottom: 80px;
+}
+
+.pre-header {
+    font-weight: normal;
+    font-family: monospace;
+    font-size: 24px;
+    text-align: right;
+    margin-right: 1em;
+}
+
+.pre-header-title {
+    color: rgb(0, 255, 0);
+}
+
+.pre-header-page-number {
+    color: rgb(255, 255, 0);
+}
+
+.yellow-line {
+    height: 0.5rem;
+    background-color: rgb(255, 255, 0);
+    margin: 0.5rem 0;
+}
+
+.header {
+    background-color: #0000ff;
+    padding: 0 2rem;
+}
+
+.header h1 {
+    color: #ffff00;
+    font-size: 24px;
+    font-weight: normal;
+    font-family: monospace;
+}
+
+.red-line {
+    height: 6px;
+    background-color: #ff0000;
+    margin-bottom: 16px;
+}
+
+.paragraph {
+    color: #00cccc;
+    font-size: 24px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    font-family: monospace;
+}
+
+.bullet {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-color: #ffff00;
+    margin-right: 0.75rem;
+}
+
+/* Login page styles */
+.login-container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 20px;
+}
+
+.login-container h2 {
+    color: #ffff00;
+    font-family: monospace;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-container .form-group {
+    margin-bottom: 16px;
+}
+
+.login-container label {
+    display: block;
+    color: #00cccc;
+    font-family: monospace;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    font-family: monospace;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #666;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0000ff;
+    color: #ffff00;
+    border: none;
+    font-family: monospace;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #0000cc;
+}
+
+.login-container .error-msg {
+    color: #ff0000;
+    font-family: monospace;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.login-container .logout-msg {
+    color: rgb(0, 255, 0);
+    font-family: monospace;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+/* Admin styles */
+.admin-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.admin-container h2 {
+    color: #ffff00;
+    font-family: monospace;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.admin-container a {
+    color: #00cccc;
+    font-family: monospace;
+    text-decoration: none;
+}
+
+.admin-container a:hover {
+    text-decoration: underline;
+}
+
+.admin-nav {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.admin-nav a, .admin-nav form {
+    display: inline;
+}
+
+.admin-nav .btn {
+    padding: 6px 12px;
+    background-color: #0000ff;
+    color: #ffff00;
+    border: none;
+    font-family: monospace;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.admin-nav .btn:hover {
+    background-color: #0000cc;
+    text-decoration: none;
+}
+
+.admin-nav .btn-logout {
+    background-color: #660000;
+    color: #ff6666;
+}
+
+.success-msg {
+    color: rgb(0, 255, 0);
+    font-family: monospace;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.error-msg {
+    color: #ff0000;
+    font-family: monospace;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.page-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: monospace;
+}
+
+.page-table th,
+.page-table td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+.page-table th {
+    color: #ffff00;
+    font-size: 14px;
+}
+
+.page-table td {
+    color: #00cccc;
+    font-size: 14px;
+}
+
+.page-table td a {
+    color: #00cccc;
+}
+
+.page-table .actions {
+    display: flex;
+    gap: 8px;
+}
+
+.page-table .actions form {
+    display: inline;
+}
+
+.page-table .btn-small {
+    padding: 4px 8px;
+    font-family: monospace;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-edit {
+    background-color: #0000ff;
+    color: #ffff00;
+}
+
+.btn-delete {
+    background-color: #660000;
+    color: #ff6666;
+}
+
+/* Admin form styles */
+.admin-form {
+    max-width: 600px;
+}
+
+.admin-form .form-group {
+    margin-bottom: 16px;
+}
+
+.admin-form label {
+    display: block;
+    color: #ffff00;
+    font-family: monospace;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.admin-form input[type="text"],
+.admin-form input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    font-family: monospace;
+    font-size: 14px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #666;
+}
+
+.admin-form .paragraph-group {
+    background-color: #222;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #444;
+}
+
+.admin-form .paragraph-group .paragraph-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.admin-form .paragraph-group .paragraph-header span {
+    color: #888;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.admin-form textarea {
+    width: 100%;
+    padding: 8px;
+    font-family: monospace;
+    font-size: 14px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #666;
+    min-height: 80px;
+    resize: vertical;
+}
+
+.admin-form .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.admin-form .checkbox-group label {
+    display: inline;
+    color: #00cccc;
+    font-size: 13px;
+}
+
+.admin-form .btn {
+    padding: 8px 16px;
+    font-family: monospace;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    margin-right: 8px;
+}
+
+.admin-form .btn-primary {
+    background-color: #0000ff;
+    color: #ffff00;
+}
+
+.admin-form .btn-secondary {
+    background-color: #444;
+    color: #ccc;
+}
+
+.admin-form .btn-danger {
+    background-color: #660000;
+    color: #ff6666;
+}
+
+.admin-form .btn-add {
+    background-color: #006600;
+    color: #66ff66;
+    margin-bottom: 16px;
+}
+
+/* Page index styles */
+.page-index {
+    max-width: 560px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.page-index h2 {
+    color: #ffff00;
+    font-family: monospace;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.page-index .nav-bar {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.page-index .nav-bar a, .page-index .nav-bar form {
+    display: inline;
+}
+
+.page-index .nav-bar .btn {
+    padding: 6px 12px;
+    background-color: #0000ff;
+    color: #ffff00;
+    border: none;
+    font-family: monospace;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.page-index .nav-bar .btn:hover {
+    background-color: #0000cc;
+    text-decoration: none;
+}
+
+.page-index .nav-bar .btn-logout {
+    background-color: #660000;
+    color: #ff6666;
+}
+
+.page-index ul {
+    list-style: none;
+}
+
+.page-index ul li {
+    margin-bottom: 8px;
+}
+
+.page-index ul li a {
+    color: #00cccc;
+    font-family: monospace;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.page-index ul li a:hover {
+    text-decoration: underline;
+}
+
+.page-index .empty-msg {
+    color: #888;
+    font-family: monospace;
+    font-size: 16px;
+}

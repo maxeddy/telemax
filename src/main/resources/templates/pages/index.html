@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telemax - Pages</title>
+    <link rel="stylesheet" th:href="@{/css/telemax.css}">
+</head>
+<body>
+    <div class="page-index">
+        <h2>Telemax Pages</h2>
+        <div class="nav-bar">
+            <a th:href="@{/admin/pages}" class="btn">Admin</a>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="btn btn-logout">Logout</button>
+            </form>
+        </div>
+        <ul th:if="${!pages.isEmpty()}">
+            <li th:each="page : ${pages}">
+                <a th:href="@{/pages/{pn}(pn=${page.pageNumber})}"
+                   th:text="${page.pageNumber} + ' - ' + ${page.title}"></a>
+            </li>
+        </ul>
+        <p th:if="${pages.isEmpty()}" class="empty-msg">No pages available.</p>
+    </div>
+</body>
+</html>
