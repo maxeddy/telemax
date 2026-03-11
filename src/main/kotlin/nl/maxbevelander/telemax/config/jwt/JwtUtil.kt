@@ -1,4 +1,4 @@
-package nl.maxbevelander.telemax.security
+package nl.maxbevelander.telemax.config.jwt
 
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts
