@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     '<textarea id="paragraphs' + index + '.text" name="paragraphs[' + index + '].text"></textarea>' +
                 '</div>' +
                 '<div class="checkbox-group">' +
-                    '<input type="hidden" name="paragraphs[' + index + '].hasBullet" value="false">' +
+                    '<input type="hidden" name="_paragraphs[' + index + '].hasBullet" value="on">' +
                     '<input type="checkbox" id="paragraphs' + index + '.hasBullet" name="paragraphs[' + index + '].hasBullet" value="true">' +
                     '<label for="paragraphs' + index + '.hasBullet">Show bullet</label>' +
                 '</div>';
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
             textarea.id = 'paragraphs' + i + '.text';
             textarea.name = 'paragraphs[' + i + '].text';
             var hidden = group.querySelector('input[type="hidden"]');
-            hidden.name = 'paragraphs[' + i + '].hasBullet';
+            hidden.name = '_paragraphs[' + i + '].hasBullet';
             var checkbox = group.querySelector('input[type="checkbox"]');
             checkbox.id = 'paragraphs' + i + '.hasBullet';
             checkbox.name = 'paragraphs[' + i + '].hasBullet';
