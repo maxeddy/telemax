@@ -2,11 +2,11 @@
 <html lang="nl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title th:text="'Telemax - ' + ${page.title}">Telemax</title>
     <link rel="stylesheet" th:href="@{/css/telemax.css}">
 </head>
-<body>
+<body class="page-view">
     <div class="container">
         <div class="pre-header">
             <span class="pre-header-title">Telemax</span>
@@ -27,10 +27,8 @@
                 <th:block th:text="${para.text}"></th:block>
             </p>
         </div>
-        <div class="yellow-line"></div>
-    </div>
-    <div style="max-width: 560px; margin-top: 10px;">
-        <a th:href="@{/}" style="color: #00cccc; font-family: monospace; text-decoration: none;">&larr; Back to pages</a>
+
+        <div class="yellow-line bottom"></div>
     </div>
 </body>
 </html>
