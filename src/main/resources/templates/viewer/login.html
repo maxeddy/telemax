@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telemax - Viewer Login</title>
+    <link rel="stylesheet" th:href="@{/css/telemax.css}">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Telemax</h2>
+        <div class="error-msg" th:if="${error}">Invalid password.</div>
+        <form th:action="@{/viewer/login}" method="post">
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" autofocus>
+            </div>
+            <button type="submit">Enter</button>
+        </form>
+    </div>
+</body>
+</html>

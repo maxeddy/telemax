@@ -1,3 +1,6 @@
+telemax:
+  viewer-password: test
+
 spring:
   application:
     name: telemax

@@ -11,9 +11,6 @@
         <h2>Telemax Pages</h2>
         <div class="nav-bar">
             <a th:href="@{/admin/pages}" class="btn">Admin</a>
-            <form th:action="@{/logout}" method="post">
-                <button type="submit" class="btn btn-logout">Logout</button>
-            </form>
         </div>
         <ul th:if="${!pages.isEmpty()}">
             <li th:each="page : ${pages}">
