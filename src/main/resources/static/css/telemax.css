@@ -264,6 +264,13 @@ body.page-view {
     margin-bottom: 16px;
 }
 
+.inline-error {
+    color: #ff0000;
+    font-family: monospace;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
 .page-table {
     width: 100%;
     border-collapse: collapse;

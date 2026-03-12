@@ -41,6 +41,11 @@ class AdminPageController(private val pageService: PageService) {
             return "redirect:/admin/create"
         }
 
+        if (pageForm.title.length > 20) {
+            redirectAttributes.addFlashAttribute("error", "Title must be 20 characters or less.")
+            return "redirect:/admin/create"
+        }
+
         if (pageForm.pageNumber < 100 || pageForm.pageNumber > 999) {
             redirectAttributes.addFlashAttribute("error", "Page number must be between 100 and 999.")
             return "redirect:/admin/create"
@@ -78,6 +83,11 @@ class AdminPageController(private val pageService: PageService) {
     ): String {
         val page = pageService.findByPageNumber(pageNumber)
             ?: return "redirect:/admin"
+
+        if (pageForm.title.length > 20) {
+            redirectAttributes.addFlashAttribute("error", "Title must be 20 characters or less.")
+            return "redirect:/admin/$pageNumber/edit"
+        }
 
         val paragraphs = pageForm.paragraphs.filter { it.text.isNotBlank() }
         pageService.update(page, pageForm.title, paragraphs)
