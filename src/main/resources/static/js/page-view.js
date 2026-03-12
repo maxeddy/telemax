@@ -159,6 +159,21 @@
         }
     }, { passive: true });
 
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight' && container.dataset.next) {
+            window.location.href = '/' + container.dataset.next;
+        } else if (e.key === 'ArrowLeft' && container.dataset.prev) {
+            window.location.href = '/' + container.dataset.prev;
+        } else if (e.key === 'ArrowDown' && currentPart < totalParts - 1) {
+            e.preventDefault();
+            showPart(currentPart + 1);
+        } else if (e.key === 'ArrowUp' && currentPart > 0) {
+            e.preventDefault();
+            showPart(currentPart - 1);
+        }
+    });
+
     window.addEventListener('resize', function() {
         measure();
     });
