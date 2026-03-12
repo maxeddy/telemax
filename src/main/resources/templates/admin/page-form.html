@@ -38,6 +38,7 @@
                     <div class="form-group">
                         <label th:for="'paragraphs' + ${stat.index} + '.text'">Text</label>
                         <textarea th:id="'paragraphs' + ${stat.index} + '.text'"
+                                  rows="19"
                                   th:name="'paragraphs[' + ${stat.index} + '].text'"
                                   th:text="${paragraph.text}"></textarea>
                     </div>
