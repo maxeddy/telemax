@@ -318,7 +318,7 @@ body.page-view {
 .btn-edit,
 a.btn-edit {
     background-color: #0000ff;
-    color: #fff;
+    color: #fff !important;
 }
 
 .btn-delete {
