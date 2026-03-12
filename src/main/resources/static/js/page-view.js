@@ -23,6 +23,7 @@
         var maxHeight = lineHeight * CONTENT_ROWS;
 
         content.style.clipPath = '';
+        content.style.paddingBottom = '';
         content.scrollTop = 0;
 
         // Check if content overflows
@@ -80,6 +81,18 @@
         }
 
         totalParts = parts.length;
+
+        // Ensure content can scroll to all breakpoints.
+        // scrollTop is capped at scrollHeight - clientHeight, so the last
+        // subpage may be unreachable without extra padding.
+        if (totalParts > 1) {
+            var lastScrollY = parts[totalParts - 1].scrollY;
+            var maxScrollTop = content.scrollHeight - content.clientHeight;
+            if (lastScrollY > maxScrollTop) {
+                content.style.paddingBottom = (lastScrollY - maxScrollTop) + 'px';
+            }
+        }
+
         currentPart = 0;
         showPart(0);
     }
