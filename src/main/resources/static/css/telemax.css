@@ -232,7 +232,7 @@ body.page-view {
 .admin-nav .btn {
     padding: 6px 12px;
     background-color: #0000ff;
-    color: #ffff00;
+    color: #fff !important;
     border: none;
     font-family: monospace;
     font-size: 14px;
@@ -247,7 +247,7 @@ body.page-view {
 
 .admin-nav .btn-logout {
     background-color: #660000;
-    color: #ff6666;
+    color: #fff;
 }
 
 .success-msg {
@@ -315,14 +315,15 @@ body.page-view {
     border: none;
 }
 
-.btn-edit {
+.btn-edit,
+a.btn-edit {
     background-color: #0000ff;
-    color: #ffff00;
+    color: #fff;
 }
 
 .btn-delete {
     background-color: #660000;
-    color: #ff6666;
+    color: #fff;
 }
 
 /* Admin form styles */
@@ -409,22 +410,22 @@ body.page-view {
 
 .admin-form .btn-primary {
     background-color: #0000ff;
-    color: #ffff00;
+    color: #fff;
 }
 
 .admin-form .btn-secondary {
     background-color: #444;
-    color: #ccc;
+    color: #fff;
 }
 
 .admin-form .btn-danger {
     background-color: #660000;
-    color: #ff6666;
+    color: #fff;
 }
 
 .admin-form .btn-add {
     background-color: #006600;
-    color: #66ff66;
+    color: #fff;
     margin-bottom: 16px;
 }
 
