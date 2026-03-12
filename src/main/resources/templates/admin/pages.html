@@ -29,11 +29,11 @@
             </thead>
             <tbody>
                 <tr th:each="page : ${pages}">
-                    <td>
+                    <td data-label="Page #">
                         <a th:href="@{/{pn}(pn=${page.pageNumber})}" th:text="${page.pageNumber}"></a>
                     </td>
-                    <td th:text="${page.title}"></td>
-                    <td th:text="${page.createdBy}"></td>
+                    <td data-label="Title" th:text="${page.title}"></td>
+                    <td data-label="Created by" th:text="${page.createdBy}"></td>
                     <td class="actions">
                         <a th:href="@{/admin/{pn}/edit(pn=${page.pageNumber})}" class="btn-small btn-edit">Edit</a>
                         <form th:action="@{/admin/{pn}/delete(pn=${page.pageNumber})}" method="post"
