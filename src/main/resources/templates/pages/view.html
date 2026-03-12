@@ -14,7 +14,9 @@
             <span class="pre-header-page-number" th:text="${page.pageNumber}"></span>
         </div>
 
-        <div class="yellow-line"></div>
+        <div class="yellow-line" id="first-yellow-line">
+            <span class="part-indicator" id="part-indicator"></span>
+        </div>
 
         <div class="header">
             <h1 th:text="${page.title}"></h1>
