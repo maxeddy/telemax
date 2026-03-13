@@ -17,6 +17,7 @@ body.page-view {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    overflow: hidden;
 }
 
 .container {
