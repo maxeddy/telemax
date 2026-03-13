@@ -1,6 +1,9 @@
 telemax:
   viewer-password: telemax
 
+server:
+  forward-headers-strategy: framework
+
 spring:
   application:
     name: telemax
