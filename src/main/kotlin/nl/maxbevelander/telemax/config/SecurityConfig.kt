@@ -21,6 +21,7 @@ class SecurityConfig {
             .authorizeHttpRequests { auth ->
                 auth
                     .requestMatchers("/login", "/css/**", "/js/**").permitAll()
+                    .requestMatchers("/favicon**", "/android-chrome-**", "/site.webmanifest").permitAll()
                     .requestMatchers("/viewer/login", "/", "/{pageNumber:\\d+}").permitAll()
                     .requestMatchers("/admin/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
