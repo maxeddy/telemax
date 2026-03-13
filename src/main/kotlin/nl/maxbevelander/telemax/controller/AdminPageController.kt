@@ -18,8 +18,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes
 class AdminPageController(private val pageService: PageService) {
 
     @GetMapping
-    fun list(model: Model): String {
+    fun list(model: Model, authentication: Authentication): String {
         model.addAttribute("pages", pageService.findAll())
+        model.addAttribute("currentUser", authentication.name)
         return "admin/pages"
     }
 

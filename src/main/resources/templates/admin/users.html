@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telemax - Admin Users</title>
+    <link rel="stylesheet" th:href="@{/css/telemax.css}">
+</head>
+<body>
+    <div class="admin-container">
+        <h2>Manage Users</h2>
+        <div class="admin-nav">
+            <a th:href="@{/admin/users/create}" class="btn">+ Create User</a>
+            <a th:href="@{/admin}" class="btn">Manage Pages</a>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="btn btn-logout">Logout</button>
+            </form>
+        </div>
+        <div class="success-msg" th:if="${success}" th:text="${success}"></div>
+        <div class="error-msg" th:if="${error}" th:text="${error}"></div>
+        <table class="page-table" th:if="${!users.isEmpty()}">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Enabled</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${users}">
+                    <td data-label="Username" th:text="${user.username}"></td>
+                    <td data-label="Role" th:text="${user.role}"></td>
+                    <td data-label="Enabled" th:text="${user.enabled} ? 'Yes' : 'No'"></td>
+                    <td class="actions">
+                        <form th:action="@{/admin/users/{id}/delete(id=${user.id})}" method="post"
+                              onsubmit="return confirm('Delete this user?')">
+                            <button type="submit" class="btn-small btn-delete">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p th:if="${users.isEmpty()}" style="color: #888; font-family: monospace;">No users yet.</p>
+    </div>
+</body>
+</html>

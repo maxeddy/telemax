@@ -12,6 +12,7 @@
         <div class="admin-nav">
             <a th:href="@{/admin/create}" class="btn">+ Create Page</a>
             <a th:href="@{/}" class="btn">View Pages</a>
+            <a th:if="${currentUser.equalsIgnoreCase('max')}" th:href="@{/admin/users}" class="btn">Manage Users</a>
             <form th:action="@{/logout}" method="post">
                 <button type="submit" class="btn btn-logout">Logout</button>
             </form>

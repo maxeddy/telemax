@@ -345,7 +345,9 @@ a.btn-edit {
 }
 
 .admin-form input[type="text"],
-.admin-form input[type="number"] {
+.admin-form input[type="number"],
+.admin-form input[type="password"],
+.admin-form select {
     width: 100%;
     padding: 8px;
     font-family: monospace;
@@ -564,6 +566,8 @@ a.btn-edit {
 
     .admin-form input[type="text"],
     .admin-form input[type="number"],
+    .admin-form input[type="password"],
+    .admin-form select,
     .admin-form textarea {
         font-size: 16px;
     }
