@@ -101,6 +101,11 @@ body.page-view {
     font-family: monospace;
 }
 
+.content a.page-link {
+    color: rgb(255, 255, 0);
+    text-decoration: none;
+}
+
 .bullet {
     display: inline-block;
     width: 0.65em;

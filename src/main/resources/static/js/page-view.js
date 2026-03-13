@@ -179,9 +179,53 @@
         }
     });
 
+    function linkifyPageNumbers() {
+        var paragraphs = content.querySelectorAll('.paragraph');
+        var re = /\b([1-9]\d{2})\b/g;
+
+        for (var i = 0; i < paragraphs.length; i++) {
+            var walker = document.createTreeWalker(paragraphs[i], NodeFilter.SHOW_TEXT, null);
+            var textNodes = [];
+            var node;
+            while ((node = walker.nextNode())) {
+                textNodes.push(node);
+            }
+
+            for (var j = 0; j < textNodes.length; j++) {
+                var textNode = textNodes[j];
+                var text = textNode.nodeValue;
+                if (!re.test(text)) continue;
+                re.lastIndex = 0;
+
+                var frag = document.createDocumentFragment();
+                var lastIndex = 0;
+                var match;
+
+                while ((match = re.exec(text)) !== null) {
+                    if (match.index > lastIndex) {
+                        frag.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
+                    }
+                    var a = document.createElement('a');
+                    a.href = '/' + match[1];
+                    a.className = 'page-link';
+                    a.textContent = match[1];
+                    frag.appendChild(a);
+                    lastIndex = re.lastIndex;
+                }
+
+                if (lastIndex < text.length) {
+                    frag.appendChild(document.createTextNode(text.substring(lastIndex)));
+                }
+
+                textNode.parentNode.replaceChild(frag, textNode);
+            }
+        }
+    }
+
     window.addEventListener('resize', function() {
         measure();
     });
 
+    linkifyPageNumbers();
     measure();
 })();
