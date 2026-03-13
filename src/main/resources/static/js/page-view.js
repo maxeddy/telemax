@@ -3,8 +3,10 @@
     var content = container.querySelector('.content');
     var indicator = document.getElementById('part-indicator');
     var CONTENT_ROWS = 19;
-    var TOTAL_ROWS = 24;
-    var LINE_HEIGHT_RATIO = 1.4;
+    var LINE_HEIGHT_RATIO = 1.15;
+    var YELLOW_LINE_EM = 1.4; // 0.3em height + 0.55em margin-top + 0.55em margin-bottom
+    var NUM_YELLOW_LINES = 3;
+    var NUM_TEXT_ROWS = 2; // pre-header + header h1
 
     var parts = []; // each entry: { scrollY, visibleHeight }
     var currentPart = 0;
@@ -12,7 +14,10 @@
 
     function computeFontSize() {
         var h = container.clientHeight;
-        var fontSize = h / TOTAL_ROWS / LINE_HEIGHT_RATIO;
+        // Non-text elements (yellow lines) are sized in em, not line-height units.
+        // Account for the difference so the content area fits CONTENT_ROWS lines.
+        var effectiveRows = (NUM_TEXT_ROWS + CONTENT_ROWS) + NUM_YELLOW_LINES * YELLOW_LINE_EM / LINE_HEIGHT_RATIO;
+        var fontSize = h / effectiveRows / LINE_HEIGHT_RATIO;
         container.style.fontSize = fontSize + 'px';
         return fontSize;
     }
@@ -20,7 +25,7 @@
     function measure() {
         var fontSize = computeFontSize();
         var lineHeight = fontSize * LINE_HEIGHT_RATIO;
-        var maxHeight = lineHeight * CONTENT_ROWS;
+        var maxHeight = content.clientHeight;
 
         content.style.clipPath = '';
         content.style.paddingBottom = '';
@@ -47,7 +52,7 @@
                 lineTops.push(y + j * lineHeight);
             }
             y += p.offsetHeight;
-            // Add blank line for margin-bottom (1.4em = one grid row) unless last paragraph
+            // Add blank line for margin-bottom (1.15em = one grid row) unless last paragraph
             if (i < paragraphs.length - 1) {
                 lineTops.push(y);
                 y += lineHeight;
